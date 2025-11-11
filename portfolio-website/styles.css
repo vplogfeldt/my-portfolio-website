@@ -1,0 +1,211 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --text-color: black;
+    --link-color: black;
+    --background-color: white;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+}
+
+a {
+    color: var(--link-color);
+    background-color: var(--background-color);
+    text-decoration: none;
+    padding: 2%;
+}
+
+a:hover {
+    color: var(--background-color);
+    background-color: var(--link-color);
+    border-radius: 5px;
+}
+
+a:active {
+    color: darkgray;
+    background-color: var(--background-color);
+}
+
+.nav-bar {
+    padding: 2% 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: 600;
+    background-color: var(--background-color);
+    position: sticky;
+    top: 0; 
+    align-self: start; 
+    text-align: center;
+}
+
+.main-content {
+    display: grid;
+    padding: 2% 8%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    "introduction picture"
+    "skills skills"
+    "projects projects";
+    place-items: center;
+}
+
+.icons {
+    width: 60%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    padding: 3%;
+    margin-top: 2%;
+}
+
+#introduction {
+    grid-area: introduction;
+    place-self: center;
+}
+
+#internal-links {
+    margin-top: 10px;
+    justify-content: left;
+}
+
+#picture {
+    grid-area: picture;
+}
+
+#picture img {
+    border-radius: 50%;
+    width: 20vw;
+    height: 20vw;
+    min-width: 250px;
+    min-height: 250px;
+    object-fit: cover;
+}
+
+#skills {
+    grid-area: skills;
+    text-align: center;
+}
+
+.skills-images {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 40px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.skill {
+    margin-top: 5%;
+    padding: 5px;
+    display: flex;
+    place-content: center;
+    align-items: center;
+    width: 200px;
+    height: 70px;
+    border: 3px solid hwb(0 78% 19%);
+    border-radius: 3px;
+    font-size: 1.3em;
+    text-decoration: bold;
+}
+
+.skill > img{
+    width: 50px;
+    margin: 2px;
+}
+
+#projects {
+    grid-area: projects;
+    place-items: center;
+    width: 100%;
+}
+
+.projects {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.project {
+    border: 6px solid hwb(0 78% 19%);
+    border-radius: 5px;
+}
+
+.project h3 {
+    text-align: center;
+}
+
+.project img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    
+}
+
+.projects a {
+    transition: transform .2s;
+    background-color: rgba(0,0,0,0);
+}
+
+.projects a:hover {
+    color: var(--link-color);
+    background-color: rgba(0,0,0,0);
+    transform: scale(1.1);
+}
+
+@media only screen and (max-width: 1080px) {
+  .external-icon {
+    display: none;
+  }
+
+    .main-content {
+        grid-template-areas: 
+            "introduction introduction"
+            "picture picture"
+            "skills skills"
+            "projects projects";
+    }
+    
+    #internal-links {
+        font-size: 2.2rem;
+        width: 80%;
+        justify-content: space-around;
+    }
+
+    .section {
+        text-align: center;
+        place-items: center;
+    }
+}
+
+@media only screen and (max-width: 724px) {
+  .nav-bar {
+    flex-direction: column;
+  }
+
+  #internal-links {
+    width: 100%;
+  }
+
+  .nav-bar .icons {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
